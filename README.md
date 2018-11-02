@@ -6,8 +6,6 @@ On [https://www.vtv2018.nl/zorguitgaven](https://www.vtv2018.nl/zorguitgaven) a 
 
 Using the data provided online, I reproduced this visualization with ggplot.  
 
-### script
-
 ``` r
 # Load package
 library(tidyverse)
