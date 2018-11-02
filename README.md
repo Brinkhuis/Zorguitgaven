@@ -1,4 +1,4 @@
-# Reproducing a nice plot with ggplot
+# Reproducing a colourful visualization with ggplot
 
 On [https://www.vtv2018.nl/zorguitgaven](https://www.vtv2018.nl/zorguitgaven) a very nice and colourful visualization was publiced on zorguitgaven (healthcare expenses):
 
