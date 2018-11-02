@@ -10,7 +10,11 @@ rbind(head(df, 3), tail(df, 3))
 # Transform and show data
 df = gather(read_csv('zorguitgaven.csv'), Type, Value, 2:5)
 df$Type <- as.factor(df$Type)
-df$Category <- factor(df$Category, levels = c("0-1", "1-5", "5-10", "10-15", "15-20", "20-25", "25-30", "30-35", "35-40", "40-45", "45-50", "50-55", "55-60", "60-65", "65-70", "70-75", "75-80", "80-85", "85-90", "90-95", "95 en ouder"))
+df$Category <- factor(df$Category, levels = c("0-1", "1-5", "5-10", "10-15", "15-20",
+                                              "20-25", "25-30", "30-35", "35-40", "40-45",
+                                              "45-50", "50-55", "55-60", "60-65", "65-70",
+                                              "70-75", "75-80", "80-85", "85-90", "90-95",
+                                              "95 en ouder"))
 rbind(head(df, 3), tail(df, 3))
 
 
@@ -44,7 +48,8 @@ ggplot(df, aes(Category, Value)) +
         axis.ticks.length=unit(.25, "cm"),
         axis.line.y = element_line(size = 1, linetype = "solid"),
         axis.ticks.y = element_line(colour = "black", size = 1)) +
-  ggtitle("De uitgaven aan zorg voor vrouwen zijn hoger dan voor mannen, en dit verschil\nneemt toe in de toekomst\n") +
+  ggtitle("De uitgaven aan zorg voor vrouwen zijn hoger dan voor mannen, en dit verschil\n
+          neemt toe in de toekomst\n") +
   coord_flip()
 
 
