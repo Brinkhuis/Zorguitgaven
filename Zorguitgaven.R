@@ -1,42 +1,20 @@
----
-title: "Reproducing a nice plot with ggplot"
-author: "René Brinkhuis"
-output: rmarkdown::github_document
----
-
-
-### Visualization to reproduce
-
-![](original.png)
-
-### Load package(s)
-
-```{r, message=FALSE}
+# Load package
 library(tidyverse)
-```
 
-### Read  file and show data
 
-Read the data file manually download from [https://www.vtv2018.nl/zorguitgaven](https://www.vtv2018.nl/zorguitgaven).
-
-```{r, message=FALSE}
+# Read data
 df = read_csv('zorguitgaven.csv')
 rbind(head(df, 3), tail(df, 3))
-```
 
 
-### Transform and show data
-
-```{r, message=FALSE}
+# Transform and show data
 df = gather(read_csv('zorguitgaven.csv'), Type, Value, 2:5)
 df$Type <- as.factor(df$Type)
 df$Category <- factor(df$Category, levels = c("0-1", "1-5", "5-10", "10-15", "15-20", "20-25", "25-30", "30-35", "35-40", "40-45", "45-50", "50-55", "55-60", "60-65", "65-70", "70-75", "75-80", "80-85", "85-90", "90-95", "95 en ouder"))
 rbind(head(df, 3), tail(df, 3))
-```
 
-### Visualize data
 
-```{r, fig.width=10, fig.height=6}
+# Visualize data
 ggplot(df, aes(Category, Value)) + 
   geom_bar(data= df %>% filter(Type %in% c('Mannen 2040', 'Vrouwen 2040')),
            aes(fill = Type),
@@ -67,12 +45,8 @@ ggplot(df, aes(Category, Value)) +
         axis.line.y = element_line(size = 1, linetype = "solid"),
         axis.ticks.y = element_line(colour = "black", size = 1)) +
   ggtitle("De uitgaven aan zorg voor vrouwen zijn hoger dan voor mannen, en dit verschil\nneemt toe in de toekomst\n") +
-    coord_flip()
-```
+  coord_flip()
 
-### Save plot
 
-```{r}
+# Save plot
 ggsave("zorguitgaven.png", width=10, height=6)
-```
-

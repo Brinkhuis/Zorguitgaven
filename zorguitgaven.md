@@ -1,9 +1,6 @@
----
-title: "Reproducing a nice plot with ggplot"
-author: "René Brinkhuis"
-output: rmarkdown::github_document
----
-
+Reproducing a nice plot with ggplot
+================
+RenÃ© Brinkhuis
 
 ### Visualization to reproduce
 
@@ -11,32 +8,51 @@ output: rmarkdown::github_document
 
 ### Load package(s)
 
-```{r, message=FALSE}
+``` r
 library(tidyverse)
 ```
 
-### Read  file and show data
+### Read file and show data
 
-Read the data file manually download from [https://www.vtv2018.nl/zorguitgaven](https://www.vtv2018.nl/zorguitgaven).
+Read the data file manually download from <https://www.vtv2018.nl/zorguitgaven>.
 
-```{r, message=FALSE}
+``` r
 df = read_csv('zorguitgaven.csv')
 rbind(head(df, 3), tail(df, 3))
 ```
 
+    ## # A tibble: 6 x 5
+    ##   Category    `Mannen 2040` `Vrouwen 2040` `Mannen 2015` `Vrouwen 2015`
+    ##   <chr>               <int>          <int>         <int>          <int>
+    ## 1 0-1                  -540            460          -420            360
+    ## 2 1-5                  -910            670          -660            500
+    ## 3 5-10                -1530           1050          -980            710
+    ## 4 85-90               -6970          11470         -1800           4400
+    ## 5 90-95               -4610           8900          -840           2950
+    ## 6 95 en ouder         -1480           3350          -210           1020
 
 ### Transform and show data
 
-```{r, message=FALSE}
+``` r
 df = gather(read_csv('zorguitgaven.csv'), Type, Value, 2:5)
 df$Type <- as.factor(df$Type)
 df$Category <- factor(df$Category, levels = c("0-1", "1-5", "5-10", "10-15", "15-20", "20-25", "25-30", "30-35", "35-40", "40-45", "45-50", "50-55", "55-60", "60-65", "65-70", "70-75", "75-80", "80-85", "85-90", "90-95", "95 en ouder"))
 rbind(head(df, 3), tail(df, 3))
 ```
 
+    ## # A tibble: 6 x 3
+    ##   Category    Type         Value
+    ##   <fct>       <fct>        <int>
+    ## 1 0-1         Mannen 2040   -540
+    ## 2 1-5         Mannen 2040   -910
+    ## 3 5-10        Mannen 2040  -1530
+    ## 4 85-90       Vrouwen 2015  4400
+    ## 5 90-95       Vrouwen 2015  2950
+    ## 6 95 en ouder Vrouwen 2015  1020
+
 ### Visualize data
 
-```{r, fig.width=10, fig.height=6}
+``` r
 ggplot(df, aes(Category, Value)) + 
   geom_bar(data= df %>% filter(Type %in% c('Mannen 2040', 'Vrouwen 2040')),
            aes(fill = Type),
@@ -70,9 +86,10 @@ ggplot(df, aes(Category, Value)) +
     coord_flip()
 ```
 
+![](zorguitgaven_files/figure-markdown_github/unnamed-chunk-4-1.png)
+
 ### Save plot
 
-```{r}
+``` r
 ggsave("zorguitgaven.png", width=10, height=6)
 ```
-
