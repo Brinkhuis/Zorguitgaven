@@ -2,7 +2,7 @@
 
 On [https://www.vtv2018.nl/zorguitgaven](https://www.vtv2018.nl/zorguitgaven) a very nice visualization was publiced on zorguitgaven (healthcare expenses):
 
-![](original.png)
+![](origineel.png)
 
 Using the data provided online, I reproduced this visualization with ggplot.  
 
