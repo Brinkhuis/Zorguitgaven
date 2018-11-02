@@ -1,7 +1,9 @@
 ---
 title: "Reproducing a nice plot with ggplot"
 author: "René Brinkhuis"
-output: html_notebook
+output: rmarkdown::github_document
+---
+
 ---
 
 ### Visualization to reproduce
