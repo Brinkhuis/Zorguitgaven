@@ -1,6 +1,0 @@
-[1103/203546.338:ERROR:file_io.cc(89)] ReadExactly: expected 392, observed 0
-[1103/203546.342:ERROR:crash_report_database_win.cc(445)] failed to read records
-[1103/203556.199:ERROR:file_io.cc(89)] ReadExactly: expected 392, observed 0
-[1103/203556.200:ERROR:crash_report_database_win.cc(445)] failed to read records
-[1103/203616.612:ERROR:file_io.cc(89)] ReadExactly: expected 392, observed 0
-[1103/203616.613:ERROR:crash_report_database_win.cc(445)] failed to read records
