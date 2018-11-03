@@ -6,7 +6,7 @@ On [https://www.vtv2018.nl/zorguitgaven](https://www.vtv2018.nl/zorguitgaven) a 
 
 Using the data provided online, I reproduced this visualization with ggplot.  
 
-#### script
+#### Script
 ``` r
 # Load package
 library(tidyverse)
@@ -66,5 +66,5 @@ ggplot(df, aes(Category, Value)) +
 # Save plot
 ggsave("zorguitgaven.png", width=10, height=6)
 ```
-#### result
+#### Result
 ![](zorguitgaven.png)
