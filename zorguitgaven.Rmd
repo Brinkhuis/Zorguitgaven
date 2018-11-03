@@ -1,13 +1,28 @@
-# Load package
+---
+title: "Zorguitgaven"
+author: "Rene Brinkhuis"
+output:
+  html_document:
+    df_print: paged
+---
+
+### Load package
+
+```{r message=FALSE}
 library(tidyverse)
+```
 
 
-# Read data
+### Read data
+
+```{r message=FALSE}
 df <- read_csv("zorguitgaven.csv")
 rbind(head(df, 3), tail(df, 3))
+```
 
+### Transform data
 
-# Transform data
+```{r message=FALSE}
 df = gather(read_csv('zorguitgaven.csv'), Type, Value, 2:5)
 df$Type <- as.factor(df$Type)
 df$Category <- factor(df$Category, levels = c("0-1", "1-5", "5-10", "10-15", "15-20",
@@ -16,9 +31,11 @@ df$Category <- factor(df$Category, levels = c("0-1", "1-5", "5-10", "10-15", "15
                                               "70-75", "75-80", "80-85", "85-90", "90-95",
                                               "95 en ouder"))
 rbind(head(df, 3), tail(df, 3))
+```
 
+### Visualize data
 
-# Visualize data
+```{r message=FALSE}
 ggplot(df, aes(Category, Value)) + 
   geom_bar(data= df %>% filter(Type %in% c('Mannen 2040', 'Vrouwen 2040')),
            aes(fill = Type),
@@ -51,7 +68,10 @@ ggplot(df, aes(Category, Value)) +
   ggtitle("De uitgaven aan zorg voor vrouwen zijn hoger dan voor mannen, en dit verschil\n
           neemt toe in de toekomst\n") +
   coord_flip()
+```
 
+### Save plot
 
-# Save plot
+```{r message=FALSE}
 ggsave("zorguitgaven.png", width=10, height=6)
+```
