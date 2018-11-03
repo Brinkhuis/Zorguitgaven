@@ -13,7 +13,7 @@ library(tidyverse)
 
 
 # Read data
-df = read_csv('zorguitgaven.csv')
+df <- read_csv("zorguitgaven.csv")
 rbind(head(df, 3), tail(df, 3))
 
 
