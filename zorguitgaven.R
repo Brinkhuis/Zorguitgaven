@@ -48,8 +48,7 @@ ggplot(df, aes(Category, Value)) +
         axis.ticks.length=unit(.25, "cm"),
         axis.line.y = element_line(size = 1, linetype = "solid"),
         axis.ticks.y = element_line(colour = "black", size = 1)) +
-  ggtitle("De uitgaven aan zorg voor vrouwen zijn hoger dan voor mannen, en dit verschil\n
-          neemt toe in de toekomst\n") +
+  ggtitle("De uitgaven aan zorg voor vrouwen zijn hoger dan\nvoor mannen, en dit verschil neemt toe in de toekomst") +
   coord_flip()
 
 
