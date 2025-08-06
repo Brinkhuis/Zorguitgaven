@@ -1,4 +1,2 @@
 .ipynb_checkpoints
-.Rhistory
-debug.log
-*.html
+.DS_Store

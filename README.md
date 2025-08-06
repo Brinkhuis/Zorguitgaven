@@ -1,9 +1,9 @@
-# Reproducing a colourful visualization with ggplot
+# Reproducing a colourful visualization with 'plotnine'
 
-On [https://www.vtv2018.nl/zorguitgaven](https://www.vtv2018.nl/zorguitgaven) a nice visualization was publiced on zorguitgaven (healthcare expenses):
+On [https://www.vtv2018.nl/zorguitgaven](https://www.vtv2018.nl/zorguitgaven) a colourful visualization was publiced on healthcare expenses (zorguitgaven) for men (mannen) and women (vrouwen).
 
-![](origineel.png)
+![](zorguitgave.png)
 
-Using the data provided online, I reproduced this visualization with ggplot.  
+Using the data provided, as a `plotnine` newbie, I reproduced this visualization:ß
 
-![](zorguitgaven.png)
+![](zorguitgaven.jpg)
